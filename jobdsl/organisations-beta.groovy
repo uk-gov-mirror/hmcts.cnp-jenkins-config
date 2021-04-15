@@ -162,7 +162,9 @@ Closure githubOrg(Map args = [:]) {
                         contextLabel(label)
                         typeSuffix(false)
                     }
-                } else {
+                }
+                
+                if (!config.nightly) {
                     traits << 'org.jenkinsci.plugins.scm_filter.AgedRefsTrait' {
                         retentionDays(30)
                     }
