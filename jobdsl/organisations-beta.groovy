@@ -162,6 +162,10 @@ Closure githubOrg(Map args = [:]) {
                         contextLabel(label)
                         typeSuffix(false)
                     }
+                } else {
+                    traits << 'org.jenkinsci.plugins.scm_filter.AgedRefsTrait' {
+                        retentionDays(30)
+                    }
                 }
 
                 // prevent builds triggering automatically from SCM push for sandbox and nightly builds
